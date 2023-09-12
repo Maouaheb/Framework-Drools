@@ -1,0 +1,18 @@
+Strategy "default" for FeatureModel "hellopizza"
+{ 
+commande : implements HelloPizza.commande with TacticType "Dependency Injection"
+		because "Modularity"
+	{	
+		component-injection("./src", "./IoC/commande.java", "./bin" ); 
+		module-injection("./src", "./IoC/commandeModule.java", "./bin" );
+		library("annotationProcessor "com.google.dagger:dagger-android-processor:2.20");
+        library("annotationProcessor "com.google.dagger:dagger-compiler:2.20");
+	}
+payment : implements HelloPizza.payment with TacticType "AspectJ"
+		because "crosscutting concern"
+	{
+		aspectJ_weaving("./src", "./aspectj/payment.java", "./bin" );
+		library("compile 'org.aspectj:aspectjrt:1.8.1'");
+		 
+	}
+}

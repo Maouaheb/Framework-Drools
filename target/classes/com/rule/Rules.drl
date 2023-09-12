@@ -1,0 +1,60 @@
+package com.rule
+import FrameworkJavaFx.tactiqueProperties
+
+rule "tactique 1"
+	when 
+		tactiquePropertiesObject: tactiqueProperties(Bindingtime=="Compile-time"||Bindingtime=="Loading-time", granularity=="Fine", evolution=="Open")
+	then
+		tactiquePropertiesObject.addElement("Aspect programming");
+	end
+rule "tactique 2"
+	when 
+		tactiquePropertiesObject: tactiqueProperties(Bindingtime=="Compile-time", granularity=="Any", evolution=="Close")
+	then
+		tactiquePropertiesObject.addElement("Conditional-Compilation");
+		
+	end
+rule "tactique 3"
+	when 
+		tactiquePropertiesObject: tactiqueProperties(Bindingtime=="Compile-time", granularity=="Any", evolution=="Open")
+	then
+		tactiquePropertiesObject.addElement("Dependency injection");
+	end
+
+rule "tactique 4"
+	when 
+		tactiquePropertiesObject: tactiqueProperties(Bindingtime=="Run-time", granularity=="Fine", evolution=="Close")
+	then
+		tactiquePropertiesObject.addElement("Conditional-Execution");
+	end
+	
+rule "tactique 5"
+	when 
+		tactiquePropertiesObject: tactiqueProperties(Bindingtime=="install-time")
+	then
+		tactiquePropertiesObject.addElement("install with JDBC");
+		tactiquePropertiesObject.addElement("install with Spring");
+		
+	end
+rule "tactique 6"
+	when 
+		tactiquePropertiesObject: tactiqueProperties(Bindingtime=="Run-time" || Bindingtime=="Compile-time", granularity=="Medium" || granularity=="Coarse" , evolution=="Open")
+	then
+		tactiquePropertiesObject.addElement("Observer");
+		tactiquePropertiesObject.addElement("Strategy");
+		tactiquePropertiesObject.addElement("Template Method");
+		tactiquePropertiesObject.addElement("Decorator");
+		tactiquePropertiesObject.addElement("Feature Oriented");	
+	end
+rule "tactique 7"
+	when 
+		tactiquePropertiesObject: tactiqueProperties(Bindingtime=="Run-time" || Bindingtime=="Construction-time"|| Bindingtime=="Loading-time", granularity=="Medium" || granularity=="Coarse" , evolution=="Open")
+	then
+		tactiquePropertiesObject.addElement("Polymorphism");
+	end
+rule "tactique 8"
+	when 
+		tactiquePropertiesObject: tactiqueProperties(Bindingtime=="Construction-time", granularity=="Any", evolution=="Close")
+	then
+		tactiquePropertiesObject.addElement("Clone-and-own");
+	end

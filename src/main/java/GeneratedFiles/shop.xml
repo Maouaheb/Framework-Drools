@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="BIZZ">
+			<graphics key="collapsed" value="false"/>
+			<or mandatory="true" name="Persona">
+				<feature name="young"/>
+				<or name="handicap">
+					<feature name="Myopic"/>
+					<feature name="colorBlind"/>
+				</or>
+			</or>
+			<alt mandatory="true" name="Storage">
+				<feature name="MySQL"/>
+				<feature name="H2"/>
+			</alt>
+			<alt mandatory="true" name="Payment">
+				<feature name="Virement"/>
+				<feature name="Card"/>
+			</alt>
+			<alt mandatory="true" name="Shop">
+				<feature name="Fnak"/>
+				<feature name="Amazon"/>
+				<feature name="Local"/>
+			</alt>
+		</and>
+	</struct>
+</featureModel>
